@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Forever My Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #ff4da6, #ff99cc, #ff66b2, #ffcce6);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.card {
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 12px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+#yes {
+  background: white;
+  color: #ff4da6;
+  font-weight: bold;
+}
+
+#yes:hover {
+  transform: scale(1.1);
+}
+
+#no {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  position: absolute;
+  transition: transform 0.3s;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #fff; }
+  50% { text-shadow: 0 0 30px #ff4da6; }
+  100% { text-shadow: 0 0 10px #fff; }
+}
+
+.love-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #ff4da6, #800040);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.big-text {
+  font-size: 45px;
+  animation: glow 2s infinite;
+}
+
+.small-text {
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Will you be my forever Valentine? 💖</h1>
+  <button id="yes" onclick="yesClicked()">Yes, Always 💘</button>
+  <button id="no" onclick="wrongAnswer()" onmouseover="moveAndShrink()">Ewww 🤭</button>
+</div>
+
+<script>
+
+let scaleSize = 1;
+
+function yesClicked() {
+  alert("I love you Isha 💗");
+
+  document.body.innerHTML = `
+  <div class="love-screen">
+    <div class="big-text">I LOVE YOU ISHA ❤️</div>
+    <div class="small-text">Forever & Always 💍✨</div>
+  </div>
+  `;
+}
+
+function wrongAnswer() {
+  alert("Wrong answer 😌💖 Try again!");
+}
+
+function moveAndShrink() {
+  var noBtn = document.getElementById("no");
+
+  var x = Math.random() * 300 - 150;
+  var y = Math.random() * 200 - 100;
+
+  scaleSize -= 0.1;
+  if(scaleSize < 0.2) scaleSize = 0.2;
+
+  noBtn.style.transform = `translate(${x}px, ${y}px) scale(${scaleSize})`;
+}
+
+</script>
+
+</body>
+</html>
